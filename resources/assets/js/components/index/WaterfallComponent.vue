@@ -3,7 +3,7 @@
         <div v-for="group in items" class=" col m3 s6">
             <div v-for="item in group" class="card" :data-key="item.id">
                 <div class="card-image card-image-0 waves-effect waves-block waves-light">
-                    <img class="activator" :src="item.path" :title="item.title">
+                    <img class="activator" :src="item.path" :title="item.title" @click="showDetail">
                 </div>
                 <div class="card-content padding-4 margin-b-0">
                     <div class="card-title margin-b-0">
@@ -54,8 +54,9 @@
 </template>
 
 <script>
-    import waterfall_api from './../../api/waterfall-api.js';
-    import _ from 'lodash';
+    import waterfall_api from './../../api/waterfall-api';
+    import 'lodash';
+    import {SET_CURRENT_IMAGE, SET_CURRENT_IMAGE_COMMENTS} from '../../store/mutation-types';
 
     export default {
         data() {
@@ -78,6 +79,7 @@
                 return [this.items_0, this.items_1, this.items_2, this.items_3];
             }
         },
+        // 组件创建之前进行数据的获取和分栏
         beforeCreate() {
             let _this = this;
             waterfall_api.getWaterfall(function (waterfall_items) {
@@ -110,7 +112,7 @@
                     switch (min_column.column_index) {
                         case 0:
                             _this.items_0.push(item);
-                            _this.columns[0].min_height_ratio += item.ratio + 0.4;
+                            _this.columns[0].min_height_ratio += item.ratio + _this.tolerance;
                             break;
                         case 1:
                             _this.items_1.push(item);
@@ -134,6 +136,24 @@
                             break
                     }
                 });
+            },
+
+            // 弹窗显示图片的详情
+            showDetail: function () {
+                let _this = this;
+                // 获取图片元信息
+                let image = image_detail.getImageDetail(1, function (image) {
+                    console.log(image);
+                    _this.image = image;
+                });
+                _this.$store.commit([SET_CURRENT_IMAGE], {image: image});
+                // 获取图片的评论
+                let comments = image_detail.getImageComments(1, 1, 20, function (comments) {
+                    _this.comments = comments;
+                });
+                _this.$store.commit([CURRENT_IMAGE_COMMENTS], {comments: comments});
+
+                $('#img-detail').modal('open')
             }
         }
     }

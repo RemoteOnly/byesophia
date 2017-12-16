@@ -83,122 +83,7 @@
     </div>
 
     <!-- 图片详情占位 开始 -->
-    <div id="img-detail" class="modal">
-        <div class="modal-close">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green red btn-floating">
-                <i class="material-icons tiny">close</i>
-            </a>
-        </div>
-        <div class="modal-content">
-            <div class="row margin-b-0">
-                <div class="valign-wrapper col s12">
-                    <div class=" waves-effect waves-block waves-light left no-padding margin-r-4">
-                        <img src="/img/1.jpg" class="circle avatar-medium" alt="">
-                    </div>
-                    <div class="no-padding">
-                        <div class="padding-b-4">
-                            <div class="col s-12 no-padding">
-                                <span class="truncate">小田</span>
-                            </div>
-                            <div class="col s12 no-padding font-12 ">
-                                <div class="col s12 m6 no-padding">
-                                    拍摄于<a href="#!" class="margin-r-4"> 日本.东京 </a><span>2017-10-10</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col m8 push-m1 s12">
-                    <div>
-                        <img src="/img/1.jpg" alt="" class="width-100">
-                    </div>
-
-                    <!-- 描述区 开始 -->
-                    <div class="row margin-b-0">
-                        <div class="col s12">
-                            <p class="flow-text font-12">
-                                我们在许多框架中已经看到了一个共同的缺陷是对真正具有响应式文字缺乏支持。
-                                页面上的元素流畅地调整大小，但文本仍按固定大小调整大小。为了改善这个问题，对于大量文本的页面，
-                                我们创建了一个响应文本大小和行高的类，以优化用户的可读性。每行在45-8
-                                字符之间，行高在较小的屏幕上更大
-                            </p>
-                        </div>
-                    </div>
-                    <!-- 描述区 结束 -->
-
-                    <!-- 图标区 开始 -->
-                    <div class="row margin-b-0">
-                        <div class="right">
-                            <a href="" class="margin-r-4">
-                                <i class="material-icons tiny">comment</i>(<span>100</span>)
-                            </a>
-                            <a href=""><i class="material-icons tiny">thumb_up</i>(<span>100</span>)</a>
-                        </div>
-                    </div>
-                    <!-- 图标区 结束 -->
-                    <div class="divider" style="margin: 4px auto"></div>
-                    <!-- 评论区 开始 -->
-                    <div class="row">
-                        <div class="col font-12">
-                            <div class="col s12 no-padding">
-                                <img src="/img/1.jpg" class="circle avatar-tiny margin-r-4" alt="" title="小樱">
-                                <span>2017-10-10</span>
-                                <span class="margin-r-4">发布评论</span>
-                            </div>
-                            <div class="col s12 card-panel teal padding-4">
-                                <p class="white-text margin-0">I am a very simple card. I am good at containing small
-                                    bits of
-                                    information.
-                                    I am convenient because I require little markup to use effectively. I am similar to
-                                    what is called a panel in other frameworks.
-                                </p>
-                                <div class="right">
-                                    <a href="" class="margin-r-4">
-                                        回复
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col font-12">
-                            <div class="col s12 no-padding">
-                                <img src="/img/1.jpg" class="circle avatar-tiny margin-r-4" alt="" title="小田">
-                                <span class="margin-r-4">2017-10-10</span>
-                                <span class="margin-r-4">回复</span>
-                                <img src="/img/1.jpg" class="circle avatar-tiny margin-r-4" alt="" title="小樱">
-                            </div>
-                            <div class="col s12 card-panel teal padding-4">
-                                <p class="white-text margin-0">I am a very simple card. I am good at containing small
-                                    bits of
-                                    information.
-                                    I am convenient because I require little markup to use effectively. I am similar to
-                                    what is called a panel in other frameworks.
-                                </p>
-                                <div class="right">
-                                    <a href="#!">回复</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 评论区 结束 -->
-                </div>
-                <div class="col m3 push-m1 hide-on-small-only ">
-                    <a href="#!" class="waves-effect waves-block waves-light">
-                        <img src="/img/1.jpg" alt="" class="width-100">
-                    </a>
-                    <a href="#!" class="waves-effect waves-block waves-light">
-                        <img src="/img/1.jpg" alt="" class="width-100">
-                    </a>
-                    <a href="#!" class="waves-effect waves-block waves-light">
-                        <img src="/img/1.jpg" alt="" class="width-100">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- 图片详情占位 结束 -->
 </div>
 <!-- ------------------------------------------------------------------------------------------------------------- -->
@@ -771,19 +656,14 @@
                 startingTop: '4%', // Starting top style attribute
                 endingTop: '1%', // Ending top style attribute
                 ready: function (modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
-                    alert("Ready");
+                    //alert("Ready");
                     console.log(modal, trigger);
                 },
                 complete: function () {
-                    alert('Closed');
+                    //alert('Closed');
                 } // Callback for Modal close
             }
         );
-
-        // 图片详情弹窗
-        $('body').on('click', '.waterfall .card-image img, .waterfall .comment', function () {
-            $('#img-detail').modal('open');
-        });
 
         // 文章详情弹窗
         $('.paper-list h6 a, .paper-cover').click(function () {
