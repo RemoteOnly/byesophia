@@ -3,9 +3,20 @@ import {images} from './data/images'
 import {comments} from './data/comments'
 
 export default {
-    getImageDetail: function (image_id, callback) {
+    getImageDetail: function (image_id, with_related_images, callback) {
+        let current_image = _.filter(images, function (image) {
+            return image.id === image_id;
+        })[0];
 
-        setTimeout(() => callback(images[image_id]), 2000)
+        // 是否是加载某人的最热的关联图片
+        let related_images = [];
+        if (with_related_images) {
+            for (let i = 1; i <= 3; i++) {
+                related_images.push(images[_.random(1, 100)]);
+            }
+        }
+
+        setTimeout(() => callback(current_image, related_images), 2000)
     },
     getImageComments: function (image_id, page = 1, limit = 20, callback) {
         // 过滤

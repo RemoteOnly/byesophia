@@ -9,7 +9,7 @@ let comments = [
             'name': '评论人3',
             'avatar': '/img/1.jpg'
         },
-        'at_user': {}
+        'at_user': null
     },
     {
         'id': 2,
@@ -37,7 +37,7 @@ let comments = [
             'name': '姓名2',
             'avatar': '/img/1.jpg'
         },
-        'at_user': {}
+        'at_user': null
     },
 ];
 
